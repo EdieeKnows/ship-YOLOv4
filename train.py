@@ -29,7 +29,6 @@ def training_loop(dataloader, model, loss_fn, optimizer):
 
         # print batch log information
         
-
 def validation_loop(dataloader, model, loss_fn):
     model.eval() # set model to evaluation mode
     size = len(dataloader.dataset)
@@ -58,9 +57,15 @@ if __name__ == "__main__":
         transforms=None
     )
 
-    train_dataloader = Da
+    train_dataloader = DataLoader(
+        dataset=training_data,
+        batch_size=64,
+        shuffle=True)
+    test_dataloader = DataLoader(
+        dataset=test_data,
+        batch_size=64,
+        shuffle=True)
     # instantiate optimizer
-    optimizer
     # instantiate loss function
     # instantiate training model
     model = Yolov4()
